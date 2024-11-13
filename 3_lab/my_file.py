@@ -3,6 +3,9 @@ class Phone:
     pass
 
 class PhoneWithAttributes:
+    GLOBAL_VAR = "класова змінна"
+    counter = 0
+
     def __init__(self, vendor, model, ram:int, made_in = None):
         """Це є конструктор для створення обєкту телефон
         """
@@ -14,6 +17,7 @@ class PhoneWithAttributes:
         self._reserved_memory:float = round(0.1 * int(ram), 2) # Це є захищений атрибут
         self.__privat_message = "Всі телефони зроблені в Китаї"
         self._video_calls = 0
+        PhoneWithAttributes.counter += 1 # Змінна яка накопичує кількість телефонів
 
     @property
     def get_availabl_memory(self):
@@ -39,3 +43,10 @@ class PhoneWithAttributes:
             self._video_calls -= 1
             return True
         return False
+    
+    @staticmethod
+    def sunny_weather(team_a=0, team_b=0):
+        """Статичні методи не потребують вказівника на обєкт
+        """
+        
+        print(f"На дворі гарна погода, ми граємо й футбол і не користуємся телефоном, рахунок {team_a}:{team_b}")
