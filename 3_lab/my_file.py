@@ -48,5 +48,14 @@ class PhoneWithAttributes:
     def sunny_weather(team_a=0, team_b=0):
         """Статичні методи не потребують вказівника на обєкт
         """
-        
         print(f"На дворі гарна погода, ми граємо й футбол і не користуємся телефоном, рахунок {team_a}:{team_b}")
+
+    @classmethod
+    def create_from_vendor(cls, vendor:str):
+        if vendor.lower() == "iphone":
+            return cls(vendor, "13", 12, "Китай")
+        if vendor.lower() == "xiaomi":
+            return cls(vendor, "Red", 13, "Китай")
+        if vendor.lower() == "samsung":
+            return cls(vendor, "One", 15, "Китай")
+        
