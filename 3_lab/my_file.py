@@ -19,6 +19,19 @@ class PhoneWithAttributes:
         self._video_calls = 0
         PhoneWithAttributes.counter += 1 # Змінна яка накопичує кількість телефонів
 
+    # Методи з подвійним підкресленням називаються Магічними методами
+    def __del__(self):
+        print("Видаляємо обєкт")
+    
+    def __len__(self):
+        return len(self.model)
+    
+    def __add__(self, obj):
+        print(f"Витягаємо деталі з телефона {obj.model} та переносимо його у {self.model}")
+
+    def __mul__(self, obj):
+        print("Тепер у шас два телефони!")
+
     @property
     def get_availabl_memory(self):
         return self.ram - self._reserved_memory
